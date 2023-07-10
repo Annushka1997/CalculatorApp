@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div id="wrapperTop">
+                <div id="logo">
+                    CalcHub
+                </div>
+                <div id="calculatorTabs">
+                    <div class="tabletMenu">
+                        <a href="#" class="tablink">
+                            math
+                        </a>
+                        <a href="#" class="tablink">
+                            age
+                        </a>
+                        <a href="#" class="tablink">
+                            bmi
+                        </a>
+                    </div>
+                </div>
+                <div class="burgerMenu">
+                    <div class="burger">
+                        <svg viewBox="0 0 100 40" width="40" height="40">
+                            <rect width="100" height="7" rx="4"></rect>
+                            <rect y="20" width="100" height="7" rx="4"></rect>
+                            <rect y="40" width="100" height="7" rx="4"></rect>
+                        </svg>
+                    </div>
+                    <ul class="menu">
+                        <li><a href="#">math</a></li>
+                        <li><a href="#">age</a></li>
+                        <li><a href="#">bmi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="wrapperBody">
+                <div id="mathCalculator" class="calculator math active">
+                    <div class="mathCalculatorDisplay" id="result">
+                        <div id="calculatorResults">
+
+                        </div>
+                    </div>
+                    <div class="mathCalculatorInput">
+                        <input type="text" />
+                    </div>
+                    <button id="ans">ans</button>
+                    <div class="mathCalculatorNumbers">
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button>/</button>
+                        <button id="backspace">⌫</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button>*</button>
+                        <button>(</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>-</button>
+                        <button>)</button>
+                        <button>0</button>
+                        <button>.</button>
+                        <button>+</button>
+                        <button id="clear">C</button>
+                        <button id="equals">=</button>
+                    </div>
+                </div>
+                <div id="ageCalculator" class="calculator age">
+                    <div class="ageCalculatorDisplay">
+
+                    </div>
+                    <div class="ageCalculatorInputs">
+                        <div class="dateOfBirth">
+                            <select id="month">
+
+                            </select>
+                            <select id="day">
+
+                            </select>
+                            <input type="text" id="year">
+                            <div class="calendarWrapper">
+                                <div class="calendarLogo">
+
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg width="32" height="30" version="1.1" viewBox="0 0 32 30" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <polygon transform="matrix(.55556 0 0 .69767 .88889 -10.466)"
+                                            points="56 58 56 15 48 15 41 15 17 15 10 15 2 15 2 58" fill="#fff"
+                                            stroke-width="1.6063" />
+                                        <g>
+                                            <path
+                                                d="m24.895 10h-22.895v20h30v-20zm-7.1053 1.3793h5.5262v4.8275h-5.5262zm5.5262 11.034h-5.5262v-4.8275h5.5262zm-12.631-4.8275h5.5262v4.8275h-5.5262zm0-6.2069h5.5262v4.8275h-5.5262zm-7.1053 0h5.5262v4.8275h-5.5262zm0 6.2069h5.5262v4.8275h-5.5262zm5.5262 11.034h-5.5262v-4.8275h5.5262zm7.1053 0h-5.5262v-4.8275h5.5262zm7.1053 0h-5.5262v-4.8275h5.5262zm7.1053 0h-5.5262v-4.8275h5.5262zm0-6.2069h-5.5262v-4.8275h5.5262zm-5.5262-6.2069v-4.8275h5.5262v4.8275z"
+                                                fill="#aaa" />
+                                            <rect x="2.5" y="5.5" width="29" height="24" fill="none" stroke="#369" />
+                                            <rect x="2" width="30" height="10" fill="#369" />
+                                        </g>
+                                        <rect x="17.1" y="16.788" width="6.9482" height="6.412" fill="none"
+                                            stroke="#f00" />
+                                    </svg>
+
+                                </div>
+                                <div class="calendar">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="ageAtTheDateOf">
+                            <select id="monthATDO">
+
+                            </select>
+                            <select id="dayATDO">
+
+                            </select>
+                            <input type="text" id="yearATDO">
+                            <div class="calendarWrapper">
+                                <div class="calendarLogoATDO">
+
+                                    <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg width="32" height="30" version="1.1" viewBox="0 0 32 30" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <polygon transform="matrix(.55556 0 0 .69767 .88889 -10.466)"
+                                            points="56 58 56 15 48 15 41 15 17 15 10 15 2 15 2 58" fill="#fff"
+                                            stroke-width="1.6063" />
+                                        <g>
+                                            <path
+                                                d="m24.895 10h-22.895v20h30v-20zm-7.1053 1.3793h5.5262v4.8275h-5.5262zm5.5262 11.034h-5.5262v-4.8275h5.5262zm-12.631-4.8275h5.5262v4.8275h-5.5262zm0-6.2069h5.5262v4.8275h-5.5262zm-7.1053 0h5.5262v4.8275h-5.5262zm0 6.2069h5.5262v4.8275h-5.5262zm5.5262 11.034h-5.5262v-4.8275h5.5262zm7.1053 0h-5.5262v-4.8275h5.5262zm7.1053 0h-5.5262v-4.8275h5.5262zm7.1053 0h-5.5262v-4.8275h5.5262zm0-6.2069h-5.5262v-4.8275h5.5262zm-5.5262-6.2069v-4.8275h5.5262v4.8275z"
+                                                fill="#aaa" />
+                                            <rect x="2.5" y="5.5" width="29" height="24" fill="none" stroke="#369" />
+                                            <rect x="2" width="30" height="10" fill="#369" />
+                                        </g>
+                                        <rect x="17.1" y="16.788" width="6.9482" height="6.412" fill="none"
+                                            stroke="#f00" />
+                                    </svg>
+
+                                </div>
+                                <div class="calendarATDO">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <button id="calculateAge"> Calculate </button>
+                    </div>
+                </div>
+                <div id="bmiCalculator" class="calculator bmi">
+                    <div class="bmiCalculatorMenu">
+                        <ul>
+                            <li> <button id="usUnits" class="bmiCalculatorBtn usUnits active"> US Units </button> </li>
+                            <li> <button id="metricUnits" class="bmiCalculatorBtn metricUnits"> Metric Units </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bmiCalculatorBody">
+                        <div class="usUnits bmiCalculator bmiCalculatorActive">
+                            <form>
+                                <div class="selectGender">
+                                    <span> Gender </span>
+                                    <label> <input type="radio" name="gender" id="male" checked> Male </label>
+                                    <label> <input type="radio" name="gender" id="female"> Female </label>
+                                </div>
+                                <div class="inputHeight">
+                                    <div class="feet">
+                                        <input type="text">
+                                        <span> feet </span>
+                                    </div>
+                                    <div class="inches">
+                                        <input type="text">
+                                        <span>inches</span>
+                                    </div>
+                                </div>
+
+                                <div class="inputWeight">
+                                    <div class="pounds">
+                                        <input type="text">
+                                        <span> pounds </span>
+                                    </div>
+                                </div>
+
+                                <div class="usUnitsCalculateBtns">
+                                    <input type="submit" value="Calculate">
+                                    <input type="reset" value="Clear">
+                                </div>
+                            </form>
+                            <div class="usUnitsCalculatorDisplay">
+
+                            </div>
+                        </div>
+
+                        <div class="metricUnits bmiCalculator">
+                            <form>
+                                <div class="selectGender">
+                                    <span> Gender </span>
+                                    <label> <input type="radio" name="gender" id="male" checked> Male </label>
+                                    <label> <input type="radio" name="gender" id="female"> Female </label>
+                                </div>
+                                <div class="inputHeight">
+                                    <div class="height">
+                                        <input type="text" id="heightCm">
+                                        <span> cm </span>
+                                    </div>
+                                </div>
+
+                                <div class="inputWeight">
+                                    <div class="weight">
+                                        <input type="text" id="weightKg">
+                                        <span> kg </span>
+                                    </div>
+                                </div>
+
+                                <div class="metricUnitsCalculateBtns">
+                                    <input type="submit" value="Calculate">
+                                    <input type="reset" value="Clear">
+                                </div>
+                            </form>
+
+                            <div class="metricUnitsCalculatorDisplay">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/script.js"></script>
+</body>
+
+</html>

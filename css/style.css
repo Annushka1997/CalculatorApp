@@ -1,0 +1,691 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=EB+Garamond&display=swap');
+
+.calculator {
+    display: none !important;
+}
+
+.active {
+    display: block !important;
+}
+
+.container .wrapper #wrapperTop {
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(126, 143, 160, 0.438);
+    transition: box-shadow .5s ease-in;
+}
+
+.container .wrapper #wrapperTop:hover {
+    box-shadow: 0 0 10px rgba(151, 193, 235, 0.438);
+}
+
+#mathCalculator {
+    margin: 20px auto 0 auto;
+    width: 400px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
+
+.mathCalculatorDisplay {
+    width: 100%;
+    height: 300px;
+    background-color: #f7f8f8cf;
+    border-radius: 10px 10px 0 0;
+    padding-right: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    white-space: normal;
+    overflow-y: auto;
+}
+
+#calculatorResults {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.mathCalculatorInput {
+    margin: 0 auto;
+    width: 97%;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10px;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.mathCalculatorInput input {
+    width: 90%;
+    height: 80%;
+    outline: none;
+    border: 1px solid #87cfeb85;
+    border-radius: 8px;
+    background: transparent;
+    padding: 0 10px;
+}
+
+.mathCalculatorInput input:valid {
+    color: #618998f1;
+    font-size: 15px;
+    font-family: 'EB Garamond', serif;
+}
+
+.mathCalculatorNumbers {
+    width: 100%;
+    height: 100px;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+}
+
+.mathCalculatorNumbers button,
+#ans {
+    width: 100%;
+    height: 40px;
+    background-color: #5eabdb80;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'EB Garamond', serif;
+}
+
+#ans {
+    background-color: #47b0f2e3;
+    width: 95%;
+    text-transform: uppercase;
+    display: block;
+    margin: 0 auto;
+}
+
+#backspace {
+    background-color: rgba(200, 23, 47, 0.65);
+    transition: background-color .3s ease;
+}
+
+#backspace:hover {
+    background-color: rgba(200, 23, 47, 0.795);
+}
+
+#equals {
+    background-color: rgba(55, 147, 55, 0.729);
+    transition: background-color .3s ease;
+}
+
+#equals:hover {
+    background-color: rgba(55, 147, 55, 0.884);
+}
+
+.mathCalculatorNumbers button:nth-child(10),
+.mathCalculatorNumbers button:nth-child(15) {
+    background-color: #47b0f2e3;
+    transition: background-color .3s ease;
+}
+
+.mathCalculatorNumbers button:nth-child(10):hover,
+.mathCalculatorNumbers button:nth-child(15):hover {
+    background-color: #2086c5e3;
+}
+
+.mathCalculatorNumbers button:hover {
+    background-color: #90d5eb;
+}
+
+.mathCalculatorNumbers button:active {
+    background-color: #87ceeb;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container .wrapper {
+    width: 1280px;
+}
+
+.container .wrapper #wrapperTop {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.container .wrapper #wrapperTop #logo {
+    font-size: 50px;
+    color: #555;
+    font-family: 'Amatic SC', cursive;
+}
+
+.container .wrapper #wrapperTop #calculatorTabs a {
+    font-size: 25px;
+    text-decoration: none;
+    color: #888;
+    transition: color .5s ease;
+    text-transform: uppercase;
+    font-family: 'EB Garamond', serif;
+}
+
+.container .wrapper #wrapperTop #calculatorTabs a:hover {
+    color: #5eabdb80;
+}
+
+.container .wrapper #wrapperBody {
+    padding: 5px;
+}
+
+.burgerMenu {
+    display: none;
+}
+
+.burger {
+    fill: #888;
+    transition: fill .3s ease-in;
+    cursor: pointer;
+}
+
+.burger:hover {
+    fill: #333;
+}
+
+.menu {
+    width: 100%;
+    display: none;
+    list-style-type: none;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    text-align: center;
+    z-index: 999;
+}
+
+.menu li:hover a {
+    color: #333;
+}
+
+.menu li {
+    width: 100%;
+    transition: width 1.5s ease;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu a {
+    font-size: 25px;
+    text-decoration: none;
+    color: #888;
+    transition: color .5s ease;
+    text-transform: uppercase;
+    font-family: 'EB Garamond', serif;
+    position: relative;
+    display: inline-block;
+}
+
+.menu a:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #888;
+    transform: scaleX(0);
+    transition: transform .7s ease-in-out;
+}
+
+.menu a:hover:before {
+    transform: scaleX(8);
+}
+
+.show {
+    display: block;
+}
+
+#result {
+    color: #90d5eb;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#result p {
+    text-align: right;
+    font-size: 20px;
+    padding: 5px 20px;
+    border: 1px solid #cccccc58;
+    max-width: 97%;
+    box-shadow: 0 0 10px rgba(138, 184, 228, 0.438);
+    margin-bottom: 2px;
+    font-family: 'EB Garamond', serif;
+}
+
+.container .wrapper #wrapperBody #ageCalculator {
+    max-width: 800px;
+    height: 350px;
+    background: #f7f8f8cf;
+    position: relative;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(162, 180, 196, 0.438);
+    transition: box-shadow .3s ease-in;
+}
+
+.container .wrapper #wrapperBody #ageCalculator:hover {
+    box-shadow: 0 0 10px rgba(123, 186, 242, 0.438);
+}
+
+.ageCalculatorDisplay {
+    width: 90%;
+    height: 200px;
+}
+
+.calendar,
+.calendarATDO {
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    left: 30%;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    font-family: 'EB Garamond', serif;
+}
+
+.calendar table,
+.calendarATDO table {
+    border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td,
+.calendarATDO th,
+.calendarATDO td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.calendar .header,
+.calendarATDO .header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 9px;
+}
+
+.calendar .header button,
+.calendarATDO .header button {
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #6395c470;
+    transition: background-color .3s ease-in;
+    color: #fff;
+}
+
+.calendar .header button:hover,
+.calendarATDO .header button:hover {
+    background-color: #6db3f5b1;
+}
+
+.calendar td:hover,
+.calendarATDO td:hover {
+    background-color: #6395c470;
+    cursor: pointer;
+    color: #fff;
+}
+
+.calendar td.active,
+.calendarATDO td.active {
+    border: 3px solid #f00;
+}
+
+.calendar .current-month,
+.calendarATDO .current-month {
+    font-weight: bold;
+}
+
+.calendarLogo,
+.calendarLogoATDO {
+    cursor: pointer;
+
+}
+
+.calendar,
+.calendarATDO {
+    display: none;
+}
+
+.dateOfBirth,
+.ageAtTheDateOf {
+    display: flex;
+    gap: 2px;
+    margin-top: 8px;
+}
+
+#ageCalculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapperBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select,
+input {
+    font-family: 'EB Garamond', serif;
+    color: #214465b1;
+    border: none;
+    cursor: pointer;
+    border: 0.5px solid #8abbe9b1;
+    border-radius: 4px;
+}
+
+#calculateAge {
+    display: block;
+    margin: 10px auto 0 auto;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #6db3f5b1;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'EB Garamond', serif;
+    transition: background-color .3s ease-in;
+    border-radius: 4px;
+}
+
+#calculateAge:hover {
+    background-color: #5a98d1;
+}
+
+.ageCalculatorDisplay {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.ageCalculatorDisplay span {
+    text-transform: uppercase;
+}
+
+.ageCalculatorDisplay p {
+    color: rgb(72, 99, 125);
+}
+
+#bmiCalculator {
+    width: 500px;
+    height: 800px;
+    background-color: rgba(225, 232, 239, 0.045);
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(162, 180, 196, 0.438);
+    transition: box-shadow .5s ease-in;
+    margin: 0 auto;
+}
+
+#bmiCalculator .bmiCalculator {
+    display: none;
+}
+
+#bmiCalculator .bmiCalculatorActive {
+    display: block !important;
+}
+
+#bmiCalculator ul {
+    list-style-type: none;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#bmiCalculator ul li button {
+    border: none;
+    background-color: transparent;
+    border: 1px solid #888;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 25px;
+    color: #888;
+    font-family: 'EB Garamond', serif;
+    transition: all .3s ease-in;
+}
+
+#bmiCalculator ul li button.active {
+    color: #fff;
+    background-color: rgba(67, 149, 220, 0.438);
+    border: 1px solid #f2f2f2;
+}
+
+#bmiCalculator ul li a:hover {
+    color: #5a98d1;
+}
+
+#bmiCalculator:hover {
+    box-shadow: 0 0 10px rgba(67, 149, 220, 0.438);
+}
+
+.bmiCalculator .selectGender {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    color: rgb(81, 94, 106);
+    margin-bottom: 10px;
+    transition: color .5s ease;
+}
+
+.bmiCalculator .selectGender span {
+    color: #888;
+    font-size: 25px;
+}
+
+.bmiCalculator .selectGender:hover {
+    color: rgb(57, 77, 95);
+}
+
+.inputHeight,
+.inputWeight {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.feet,
+.inches,
+.pounds,
+.height,
+.weight {
+    position: relative;
+}
+
+.feet span,
+.inches span,
+.pounds span,
+.height span,
+.weight span {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    color: #888;
+}
+
+.inputHeight input,
+.inputWeight input {
+    padding: 10px;
+    padding-right: 60px;
+}
+
+.usUnitsCalculateBtns,
+.metricUnitsCalculateBtns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.usUnitsCalculateBtns input,
+.metricUnitsCalculateBtns input {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: none;
+    background-color: rgba(67, 149, 220, 0.438);
+    color: #fff;
+    font-size: 20px;
+    font-family: 'EB Garamond', serif;
+    transition: background-color .5s ease;
+    margin-bottom: 9px;
+}
+
+.usUnitsCalculateBtns input:hover {
+    background-color: #5a98d1;
+}
+
+.usUnitsCalculatorDisplay,
+.metricUnitsCalculatorDisplay {
+    margin: 0 auto;
+    width: 90%;
+    min-height: 300px;
+    box-shadow: 0 0 10px rgba(67, 149, 220, 0.438);
+    margin-bottom: 10px;
+}
+
+.usUnitsCalculatorDisplay svg,
+.metricUnitsCalculatorDisplay svg {
+    margin: 50px;
+}
+
+.bmiCalcShow {
+    display: none;
+}
+
+.bmiCalcShow.bmiCalcShowActive {
+    display: block;
+}
+
+.bmiResult {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.bmiResult span {
+    font-size: 25px;
+    color: rgba(67, 149, 220);
+}
+
+@media (max-width: 520px) {
+    #bmiCalculator {
+        width: 100%;
+        height: auto;
+        padding: 5px;
+    }
+
+    .inputHeight input,
+    .inputWeight input {
+        width: 100px;
+        padding: 8px;
+        padding-right: 50px;
+    }
+
+
+    .usUnitsCalculatorDisplay,
+    .metricUnitsCalculatorDisplay {
+        padding: 10px;
+    }
+
+    .usUnitsCalculatorDisplay svg,
+    .metricUnitsCalculatorDisplay svg {
+        margin: 5px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    #mathCalculator {
+        max-width: 330px;
+    }
+
+    .burgerMenu {
+        display: block;
+    }
+
+    .tabletMenu {
+        display: none;
+    }
+
+    .calendar,
+    .calendarATDO {
+        left: 10%;
+    }
+
+    .calendar th,
+    .calendar td {
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    #mathCalculator {
+        max-width: 250px;
+    }
+
+    #ageCalculator {
+        width: 97%;
+    }
+
+    .dateOfBirth,
+    .ageAtTheDateOf {
+        gap: 0px;
+    }
+
+    .dateOfBirth input,
+    .ageAtTheDateOf input {
+        width: 145px;
+    }
+
+
+}
