@@ -142,7 +142,7 @@ function createDisplay(item, id) {
     return svg;
 }
 
-function createResult(kgOrLbs, bmi, category, healthyMin, healthyMax, healthyWeightMin, healthyWeightMax, weightDifference, bmiPrime, ponderalIndex, isMetricUnits) {
+function createResult(kgOrLbs, bmi, category, healthyMin, healthyMax, healthyWeightMin, healthyWeightMax, weightDifference, bmiPrime, ponderalIndex, isMetricUnits, pounds, heightInches) {
     let action = "";
     let targetBMI = 0;
 
@@ -163,10 +163,11 @@ function createResult(kgOrLbs, bmi, category, healthyMin, healthyMax, healthyWei
         }
     } else {
         if (action === "Lose") {
-            weightChange = ((weightDifference - (healthyWeightMax * 0.453592))).toFixed(1);
+            weightChange = ((pounds - (targetBMI * (heightInches ** 2 / 703)))).toFixed(1);
         } else if (action === "Gain") {
-            weightChange = ((healthyWeightMin * 0.453592) - weightDifference).toFixed(1);
+            weightChange = (((targetBMI * (heightInches ** 2 / 703)) - pounds)).toFixed(1);
         }
+        
     }
 
     return `
@@ -218,7 +219,7 @@ function initBIMCalculator() {
             slider.setAttribute("to", `${calculateRotation(bmi)} 140 140`);
             bmiText.textContent = `BMI = ${bmi.toFixed(1)}`;
 
-            displayUsUnits.insertAdjacentHTML("beforeend", createResult("lbs",bmi, category, healthyMin, healthyMax, healthyWeightMin, healthyWeightMax, weightDifference, bmiPrime, ponderalIndex,false));
+            displayUsUnits.insertAdjacentHTML("beforeend", createResult("lbs",bmi, category, healthyMin, healthyMax, healthyWeightMin, healthyWeightMax, weightDifference, bmiPrime, ponderalIndex,false,pounds,heightInches));
         }
     });
 
